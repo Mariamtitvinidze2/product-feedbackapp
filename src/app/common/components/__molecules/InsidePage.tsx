@@ -2,8 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function InsidePage() {
+  const router = useRouter()
+  const RoadMapRouter = () => {
+    router.push('/roadmap')
+  }
   return (
     <div className="flex justify-center items-center bg-[#F7F8FD] w-screen h-screen">
       <div className="flex flex-col justify-between max-w-[255px] h-[529px]">
@@ -54,12 +59,11 @@ export default function InsidePage() {
 
           <div className="w-[207px] flex flex-row justify-between mt-[19px]">
             <p className="text-[#3A4374] font-semibold text-[18px]">Roadmap</p>
-            <a
-              href="#"
+            <button onClick={RoadMapRouter}
               className="text-[#D0D7F8] text-[13px] font-semibold hover:text-[#4661E6] underline"
             >
               View
-            </a>
+            </button>
           </div>
           <div className="flex flex-row w-[207px] h-[23px] mt-[24px] justify-between">
             <div className="flex flex-row items-center">
