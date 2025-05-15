@@ -7,8 +7,8 @@ import NotFound from "../../Image/insidePageNotFound.png";
 
 export default function InsidePage() {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center bg-[#F7F8FD] w-screen  md:h-screen h-[150%]">
-      <div className="flex flex-row md:flex-col justify-between md:max-w-[255px] max-w-[689px] md:h-[529px] h-[178px] md:justify-between items-center md:mb-[0px] mb-[40px] md:mt-[0px] mt-[120px]">
+    <div className="flex flex-col md:flex-row md:justify-center md:items-center bg-[#F7F8FD] w-screen  md:h-screen h-[150%] justify-center items-center">
+      <div className="flex flex-row md:flex-col justify-between md:max-w-[255px] max-w-[689px] md:h-[529px] h-[178px] md:justify-between items-center md:mb-[0px] mb-[40px] md:mt-[0px] md:pl-[18px] mt-[120px]">
         <div className="">
           <div
             className="md:w-[255px] md:h-[137px] w-[223px] h-[178px] rounded-lg overflow-hidden text-white flex flex-col justify-end p-4 mr-[10px]"
@@ -84,8 +84,8 @@ export default function InsidePage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col max-w-[825px] min-w-[470px] h-[529px] ml-[30px] ">
-        <div className="flex flex-row max-w-[825px]  md:min-w-[470px] min-w-[670px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px] mr-[17px]">
+      <div className="flex flex-col w-full max-w-[825px] min-w-[465px] h-[529px] ml-[30px] md:pr-[20px] ">
+        <div className=" flex flex-row w-full md:max-w-[825px] max-w-[670px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px] m-auto">
           <div className="flex flex-row items-center">
             <Image
               src={Bulb.src}
@@ -102,7 +102,7 @@ export default function InsidePage() {
             + Add Feedback
           </button>
         </div>
-        <div className="max-w-[825px] h-[600px] mt-[24px] flex justify-center items-center flex-col bg-white">
+        <div className="w-full md:max-w-[825px] max-w-[680px] min-w-[200px] h-[600px] mt-[24px] flex justify-center items-center flex-col bg-white m-auto">
           <Image
             src={NotFound.src}
             alt="Description of image"
