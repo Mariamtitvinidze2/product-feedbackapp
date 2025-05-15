@@ -84,7 +84,7 @@ export default function InsidePage() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-full max-w-[825px] min-w-[465px] h-[529px] ml-[30px] md:pr-[20px] ">
+      <div className="flex flex-col w-full max-w-[825px] min-w-[465px] h-[529px] md:ml-[30px] md:pr-[20px] pr-[0px]  ">
         <div className=" flex flex-row w-full md:max-w-[825px] max-w-[670px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px] m-auto">
           <div className="flex flex-row items-center">
             <Image
