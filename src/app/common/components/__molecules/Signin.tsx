@@ -122,13 +122,14 @@ const Signin = () => {
           {submitError && (
             <p className="text-sm text-red-500 mb-2">{submitError}</p>
           )}
-
-          <button
-            type="submit"
-            className="bg-black text-white h-10 rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
-          >
-            {t.signin}
-          </button>
+          <Link href="/inside">
+            <button
+              type="submit"
+              className="bg-black text-white h-10 w-[387px] rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
+            >
+              {t.signin}
+            </button>
+          </Link>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">

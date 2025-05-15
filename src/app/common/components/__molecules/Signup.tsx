@@ -74,7 +74,6 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col gap-[20px] items-center">
-      {/* Language Selector */}
       <div className="mb-4">
         <label htmlFor="lang" className="mr-2 font-medium">
           {t.selectLanguage}:
@@ -160,13 +159,14 @@ const Signup = () => {
           {submitError && (
             <p className="text-sm text-red-500 mb-2">{submitError}</p>
           )}
-
-          <button
-            type="submit"
-            className="bg-black text-white h-10 rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
-          >
-            {t.signup}
-          </button>
+          <Link href="/inside">
+            <button
+              type="submit"
+              className="bg-black text-white w-[387px] h-10 rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
+            >
+              {t.signup}
+            </button>
+          </Link>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
