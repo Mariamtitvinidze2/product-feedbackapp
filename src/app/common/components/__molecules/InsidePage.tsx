@@ -1,14 +1,16 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Oval from "../../Image/Oval.png";
 import Bulb from "../../Image/bulb.svg";
 import Notfound from "../../Image/insidePageNotFound.png";
+
 import AddFeedBackBtn from "../__atoms/addFeedBackBtn/AddFeedBackBtn";
 
 import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
+
 
 export default function InsidePage() {
   const FeedBackItemBtns = [
@@ -37,6 +39,7 @@ export default function InsidePage() {
           </div>
         </div>
 
+
         <div className="w-[255px] h-auto bg-white p-4 rounded-[20px]">
           <div className="flex flex-wrap gap-2">
             <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
@@ -57,6 +60,7 @@ export default function InsidePage() {
             <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
               Feature
             </button>
+
           </div>
         </div>
 
@@ -97,8 +101,8 @@ export default function InsidePage() {
         </div>
       </div>
 
-      <div className="flex flex-col max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
-        <div className="flex flex-row max-w-[825px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px]">
+      <div className="flex flex-col w-full max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
+      <div className="flex flex-row w-full bg-[#373F68]  items-center pr-4 pl-6 py-3.5 justify-between rounded-[15px]">
           <div className="flex flex-row items-center">
             <Image
               src={Bulb}
@@ -112,11 +116,13 @@ export default function InsidePage() {
             </p>
           </div>
 
+
           <Link href="/feedback">
             <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
               + Add Feedback
             </button>
           </Link>
+
         </div>
 
         <div className="max-w-[825px] h-[600px] mt-[24px] flex justify-center items-center flex-col bg-white">
