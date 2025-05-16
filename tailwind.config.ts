@@ -15,6 +15,9 @@ const config: Config = {
         indigoink : '#373F68',
         vibrantpurple : '#AD1FEA'
       },
+      fontFamily: {
+        jost: ['var(--font-jost)'],
+      }
     },
   },
   plugins: [],

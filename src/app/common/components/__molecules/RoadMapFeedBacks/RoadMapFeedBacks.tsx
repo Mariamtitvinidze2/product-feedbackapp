@@ -78,19 +78,19 @@ export default function RoadMapFeedBacks() {
             {roadmap.map((item, index) => {
                 return <div className="w-full max-w-[350px]" key={index}>
                     <div className="">
-                        <h1 className="text-[18px] font-bold text-[#3A4374]">{item.status}</h1>
+                        <h1 className="text-[18px] font-bold text-[#3A4374] ">{item.status}</h1>
                         <h2 className="text-[14px] mt-1 text-[#647196]">{item.description}</h2>
                         <div className="w-full flex flex-col gap-5 mt-8">
                             {item.cards.map((item2, index) => {
                                 return <div className="w-full p-8 bg-white rounded-[5px]" style={{ borderTop: `5px solid ${item2.color}` }} key={index}>
                                     <h2 className="text-[16px] text-[#647196] flex gap-3 items-center mb-2"><DotSvg color={item2.color} /> {item.status}</h2>
                                     <div className="">
-                                        <h1 className="text-[18px] font-bold text-indigoink mb-1">{item2.title}</h1>
+                                        <h1 className="text-[18px] font-bold text-indigoink mb-1 hover:text-[#4661E6] cursor-pointer">{item2.title}</h1>
                                         <h2 className="text-[#647196] text-[16px]">{item2.description}</h2>
                                     </div >
                                     <button className="mt-4 text-[#4661E6] px-4 py-[6px] text-[13px] bg-[#F2F4FF]  rounded-[10px] font-bold"> {item2.type}</button>
                                     <div className="mt-4 flex justify-between items-center">
-                                        <button className="text-[13px] text-indigoink px-4 py-2.5 font-bold bg-[#F2F4FF] flex gap-2 items-center rounded-[10px]"><TopArrow />{item2.upvotes}</button>
+                                        <button className="text-[13px] text-indigoink px-4 py-2.5 font-bold hover:bg-[#CFD7FF] transition-all duration-300 active:bg-[#4661E6] active:text-white bg-[#F2F4FF] flex gap-2 items-center rounded-[10px]"><TopArrow />{item2.upvotes}</button>
                                         <div className="flex gap-3 items-center text-[16px] font-bold text-indigoink"><CommentSvg />{item2.comments}</div>
                                     </div>
                                 </div>

@@ -1,9 +1,15 @@
+'use client'
+import { useRouter } from "next/navigation";
 import PlusSvg from "@/app/common/icons/PlusSvg";
 
 export default function AddFeedBackBtn() {
+    const router = useRouter()
+    const addFeedbackRouter = () => {
+        router.push('/feedback')
+    }
     return <>
         <div className="">
-            <button className="px-6 py-3 bg-vibrantpurple rounded-[10px] text-[14px] font-bold text-white"> <PlusSvg /></button>
+            <button onClick={addFeedbackRouter} className="px-6 py-3 h-11 bg-vibrantpurple hover:bg-[#C75AF6] active:px-5 active:py-2.5 transition-all duration-200 rounded-[10px] text-[14px] font-bold text-white"> <PlusSvg /></button>
         </div>
     </>
 }

@@ -1,18 +1,26 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+
 import Link from "next/link";
+import Oval from "../../Image/Oval.png";
+import Bulb from "../../Image/bulb.svg";
+import Notfound from "../../Image/insidePageNotFound.png";
 
 export default function InsidePage() {
+  const FeedBackItemBtns = [{ text: 'All' }, { text: 'UI' }, { text: 'UX' }, { text: 'Enhancement' }, { text: 'Bug' }, { text: 'Feature' },]
+  const router = useRouter()
+  const RoadMapRouter = () => {
+    router.push('/roadmap')
+  }
   return (
     <div className="flex justify-center items-center bg-[#F7F8FD] w-screen h-screen">
       <div className="flex flex-col justify-between max-w-[255px] h-[529px]">
         <div>
-
           <div
             className="md:w-[255px] md:h-[137px] w-[223px] h-[178px] rounded-lg overflow-hidden text-white flex flex-col justify-end p-4 mr-[10px]"
             style={{
-              backgroundImage: "../../Image/Oval.png",
+              backgroundImage: `url(${Oval.src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -23,7 +31,6 @@ export default function InsidePage() {
         </div>
 
         <div className="w-[255px] h-[166px] bg-white flex flex-col items-center justify-center rounded-[20px]">
-
           <div>
             <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold mr-[7px]">
               All
@@ -34,32 +41,23 @@ export default function InsidePage() {
             <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold">
               UX
             </button>
+
           </div>
-          <div className="w-[180px] flex justify-around mt-[14px]">
-            <button className="bg-[#F2F4FF] rounded-xl w-[108px] h-[30px] text-[#4661E6] font-semibold">
-              Enhancement
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[58px] h-[30px] text-[#4661E6] font-semibold">
-              Bug
-            </button>
-          </div>
-          <div className="w-[180px] mt-[14px]">
-            <button className="bg-[#F2F4FF] rounded-xl w-[77px] h-[30px] text-[#4661E6] font-semibold">
-              Feature
-            </button>
+          <div className=" flex flex-wrap gap-3.5">
+            {FeedBackItemBtns.splice(0,3).map((item, index) => {
+              return <FeedBackItemsBtn key={index} text={item.text} />
+            })}
           </div>
         </div>
 
         <div className="w-[255px] h-[178px] bg-white flex flex-col justify-center items-center rounded-[20px]">
-
           <div className="w-[207px] flex flex-row justify-between mt-[19px]">
             <p className="text-[#3A4374] font-semibold text-[18px]">Roadmap</p>
-            <a
-              href="#"
+            <button onClick={RoadMapRouter}
               className="text-[#D0D7F8] text-[13px] font-semibold hover:text-[#4661E6] underline"
             >
               View
-            </a>
+            </button>
           </div>
           <div className="flex flex-row w-[207px] h-[23px] mt-[24px] justify-between">
             <div className="flex flex-row items-center">
@@ -91,26 +89,30 @@ export default function InsidePage() {
 
       <div className="flex flex-col max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
         <div className="flex flex-row max-w-[825px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px]">
-
           <div className="flex flex-row items-center">
             <Image
-              src={"../../Image/nulb.svg"}
+              src={Bulb}
+
               alt="Bulb"
               width={23}
               height={24}
-              className="rounded-lg shadow-lg ml-[24px] mr-[6px]"
+              className="rounded-lg shadow-lg  mr-[6px]"
             />
             <p className="text-white text-[18px] font-semibold">
               0 Suggestions
             </p>
           </div>
-          <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
-            + Add Feedback
-          </button>
+
+          <Link href="/feedback">
+            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
+              + Add Feedback
+            </button>
+          </Link>
+
         </div>
 
         <div className="max-w-[825px] h-[600px] mt-[24px] flex justify-center items-center flex-col bg-white">
-
+          <Image src={Notfound} alt="notfound" width={120} height={130} />
           <h3 className="max-w-[276px] h-[35px] mt-[53px] mb-[16px] text-[#3A4374] text-[22px] font-bold">
             There is no feedback yet.
           </h3>
@@ -120,11 +122,9 @@ export default function InsidePage() {
           <p className="max-w-[410px] text-[#647196] text-center font-semibold text-[14px]">
             We love hearing about new ideas to improve our app.
           </p>
-          <Link href="feedback">
-            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mt-[48px] text-[#F2F4FE] font-bold rounded-[10px]">
-              + Add Feedback
-            </button>
-          </Link>
+          <div className="mt-12">
+            <AddFeedBackBtn />
+          </div>
         </div>
       </div>
     </div>
