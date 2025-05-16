@@ -6,15 +6,22 @@ import Link from "next/link";
 import Oval from "../../Image/Oval.png";
 import Bulb from "../../Image/bulb.svg";
 import Notfound from "../../Image/insidePageNotFound.png";
-import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
+
 import AddFeedBackBtn from "../__atoms/addFeedBackBtn/AddFeedBackBtn";
 
+import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
+
+
 export default function InsidePage() {
-  const FeedBackItemBtns = [{ text: 'All' }, { text: 'UI' }, { text: 'UX' }, { text: 'Enhancement' }, { text: 'Bug' }, { text: 'Feature' },]
-  const router = useRouter()
-  const RoadMapRouter = () => {
-    router.push('/roadmap')
-  }
+  const FeedBackItemBtns = [
+    { text: "All" },
+    { text: "UI" },
+    { text: "UX" },
+    { text: "Enhancement" },
+    { text: "Bug" },
+    { text: "Feature" },
+  ];
+
   return (
     <div className="flex justify-center items-center bg-[#F7F8FD] w-screen h-screen">
       <div className="flex flex-col justify-between max-w-[255px] h-[529px]">
@@ -32,28 +39,39 @@ export default function InsidePage() {
           </div>
         </div>
 
-        <div className="w-[255px] p-6 bg-white flex flex-wrap gap-3.5 items-center justify-center rounded-[20px]">
 
-          <div className=" w-full flex gap-2 justify-start">
-            {FeedBackItemBtns.splice(0, 3).map((item, index) => {
-              return <FeedBackItemsBtn key={index} text={item.text} />
-            })}
-          </div>
-          <div className=" flex flex-wrap gap-3.5">
-            {FeedBackItemBtns.splice(0, 3).map((item, index) => {
-              return <FeedBackItemsBtn key={index} text={item.text} />
-            })}
+        <div className="w-[255px] h-auto bg-white p-4 rounded-[20px]">
+          <div className="flex flex-wrap gap-2">
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              All
+            </button>
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              UI
+            </button>
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              UX
+            </button>
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              Enhancement
+            </button>
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              Bug
+            </button>
+            <button className="bg-[#F2F4FF] text-[#4661E6] rounded-xl px-4 h-[30px] font-semibold">
+              Feature
+            </button>
+
           </div>
         </div>
 
         <div className="w-[255px] h-[178px] bg-white flex flex-col justify-center items-center rounded-[20px]">
           <div className="w-[207px] flex flex-row justify-between mt-[19px]">
             <p className="text-[#3A4374] font-semibold text-[18px]">Roadmap</p>
-            <button onClick={RoadMapRouter}
-              className="text-[#D0D7F8] text-[13px] font-semibold hover:text-[#4661E6] underline"
-            >
-              View
-            </button>
+            <Link href="/roadmap">
+              <button className="text-[#D0D7F8] text-[13px] font-semibold hover:text-[#4661E6] underline">
+                View
+              </button>
+            </Link>
           </div>
           <div className="flex flex-row w-[207px] h-[23px] mt-[24px] justify-between">
             <div className="flex flex-row items-center">
@@ -88,7 +106,6 @@ export default function InsidePage() {
           <div className="flex flex-row items-center">
             <Image
               src={Bulb}
-
               alt="Bulb"
               width={23}
               height={24}
@@ -99,9 +116,12 @@ export default function InsidePage() {
             </p>
           </div>
 
-          <div className="">
-            <AddFeedBackBtn />
-          </div>
+
+          <Link href="/feedback">
+            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
+              + Add Feedback
+            </button>
+          </Link>
 
         </div>
 
