@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Oval from "../../Image/Oval.png";
 import Bulb from "../../Image/bulb.svg";
 import Notfound from "../../Image/insidePageNotFound.png";
+import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
+import AddFeedBackBtn from "../__atoms/addFeedBackBtn/AddFeedBackBtn";
 
 export default function InsidePage() {
   const FeedBackItemBtns = [{ text: 'All' }, { text: 'UI' }, { text: 'UX' }, { text: 'Enhancement' }, { text: 'Bug' }, { text: 'Feature' },]
@@ -30,21 +32,15 @@ export default function InsidePage() {
           </div>
         </div>
 
-        <div className="w-[255px] h-[166px] bg-white flex flex-col items-center justify-center rounded-[20px]">
-          <div>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold mr-[7px]">
-              All
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold mr-[7px]">
-              UI
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold">
-              UX
-            </button>
+        <div className="w-[255px] p-6 bg-white flex flex-wrap gap-3.5 items-center justify-center rounded-[20px]">
 
+          <div className=" w-full flex gap-2 justify-start">
+            {FeedBackItemBtns.splice(0, 3).map((item, index) => {
+              return <FeedBackItemsBtn key={index} text={item.text} />
+            })}
           </div>
           <div className=" flex flex-wrap gap-3.5">
-            {FeedBackItemBtns.splice(0,3).map((item, index) => {
+            {FeedBackItemBtns.splice(0, 3).map((item, index) => {
               return <FeedBackItemsBtn key={index} text={item.text} />
             })}
           </div>
@@ -87,8 +83,8 @@ export default function InsidePage() {
         </div>
       </div>
 
-      <div className="flex flex-col max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
-        <div className="flex flex-row max-w-[825px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px]">
+      <div className="flex flex-col w-full max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
+      <div className="flex flex-row w-full bg-[#373F68]  items-center pr-4 pl-6 py-3.5 justify-between rounded-[15px]">
           <div className="flex flex-row items-center">
             <Image
               src={Bulb}
@@ -103,11 +99,9 @@ export default function InsidePage() {
             </p>
           </div>
 
-          <Link href="/feedback">
-            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
-              + Add Feedback
-            </button>
-          </Link>
+          <div className="">
+            <AddFeedBackBtn />
+          </div>
 
         </div>
 
