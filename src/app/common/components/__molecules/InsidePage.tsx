@@ -1,10 +1,13 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import bulb from '../../Image/bulb.svg'
 import { useRouter } from "next/navigation";
+import AddFeedBackBtn from "../__atoms/addFeedBackBtn/AddFeedBackBtn";
+import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
 
 export default function InsidePage() {
+  const FeedBackItemBtns = [{ text: 'All' }, { text: 'UI' }, { text: 'UX' }, { text: 'Enhancement' }, { text: 'Bug' }, { text: 'Feature' },]
   const router = useRouter()
   const RoadMapRouter = () => {
     router.push('/roadmap')
@@ -15,43 +18,22 @@ export default function InsidePage() {
         <div>
 
           <div
-            className="md:w-[255px] md:h-[137px] w-[223px] h-[178px] rounded-lg overflow-hidden text-white flex flex-col justify-end p-4 mr-[10px]"
-            style={{
-              backgroundImage: "../../Image/Oval.png",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <p className="text-lg font-medium">Frontend Mentor</p>
-            <p className="text-sml font-semibold">Feedback Board</p>
+            className="md:w-[255px] md:h-[137px] w-[223px] h-[178px] rounded-lg bg-gradient-to-r from-[#28A7ED] via-[#A337F6] to-[#E84D70] overflow-hidden text-white flex flex-col justify-end p-6 mr-[10px]">
+            <p className="text-[20px]  font-bold ]">Frontend Mentor</p>
+            <p className="text-sml ">Feedback Board</p>
           </div>
         </div>
 
-        <div className="w-[255px] h-[166px] bg-white flex flex-col items-center justify-center rounded-[20px]">
-
-          <div>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold mr-[7px]">
-              All
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold mr-[7px]">
-              UI
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[48px] h-[30px] text-[#4661E6] font-semibold">
-              UX
-            </button>
+        <div className="w-[255px] p-6 bg-white flex flex-wrap gap-3.5 items-center justify-center rounded-[20px]">
+          <div className="w-full flex gap-2 justify-start">
+            {FeedBackItemBtns.splice(0, 3).map((item, index) => {
+              return <FeedBackItemsBtn key={index} text={item.text} />
+            })}
           </div>
-          <div className="w-[180px] flex justify-around mt-[14px]">
-            <button className="bg-[#F2F4FF] rounded-xl w-[108px] h-[30px] text-[#4661E6] font-semibold">
-              Enhancement
-            </button>
-            <button className="bg-[#F2F4FF] rounded-xl w-[58px] h-[30px] text-[#4661E6] font-semibold">
-              Bug
-            </button>
-          </div>
-          <div className="w-[180px] mt-[14px]">
-            <button className="bg-[#F2F4FF] rounded-xl w-[77px] h-[30px] text-[#4661E6] font-semibold">
-              Feature
-            </button>
+          <div className=" flex flex-wrap gap-3.5">
+            {FeedBackItemBtns.splice(0,3).map((item, index) => {
+              return <FeedBackItemsBtn key={index} text={item.text} />
+            })}
           </div>
         </div>
 
@@ -93,24 +75,22 @@ export default function InsidePage() {
         </div>
       </div>
 
-      <div className="flex flex-col max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
-        <div className="flex flex-row max-w-[825px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px]">
+      <div className="flex flex-col w-full max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
+        <div className="flex flex-row w-full bg-[#373F68]  items-center pr-4 pl-6 py-3.5 justify-between rounded-[15px]">
 
-          <div className="flex flex-row items-center">
+          <div className="flex gap-4 items-center ">
             <Image
-              src={"../../Image/nulb.svg"}
+              src={bulb}
               alt="Bulb"
               width={23}
               height={24}
-              className="rounded-lg shadow-lg ml-[24px] mr-[6px]"
+              className="rounded-lg shadow-lg  mr-[6px]"
             />
             <p className="text-white text-[18px] font-semibold">
               0 Suggestions
             </p>
           </div>
-          <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
-            + Add Feedback
-          </button>
+          <AddFeedBackBtn />
         </div>
 
         <div className="max-w-[825px] h-[600px] mt-[24px] flex justify-center items-center flex-col bg-white">
@@ -124,11 +104,9 @@ export default function InsidePage() {
           <p className="max-w-[410px] text-[#647196] text-center font-semibold text-[14px]">
             We love hearing about new ideas to improve our app.
           </p>
-          <Link href="feedback">
-            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mt-[48px] text-[#F2F4FE] font-bold rounded-[10px]">
-              + Add Feedback
-            </button>
-          </Link>
+          <div className="mt-12">
+            <AddFeedBackBtn />
+          </div>
         </div>
       </div>
     </div>
