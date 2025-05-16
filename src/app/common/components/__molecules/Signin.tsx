@@ -67,7 +67,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="flex flex-col gap-[20px] items-center">
+    <div className="flex flex-col gap-[20px] items-center w-full h-screen  justify-center  [background-image:linear-gradient(153deg,_#28A7ED_0%,_#A337F6_50%,_#E84D70_100%)]">
       <div className="mb-4">
         <label htmlFor="lang" className="mr-2 font-medium">
           {t.selectLanguage}:
