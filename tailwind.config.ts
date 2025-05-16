@@ -11,7 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        bgmain : 'var(--bgMain)',
+        indigoink : '#373F68',
+        vibrantpurple : '#AD1FEA'
       },
+      fontFamily: {
+        jost: ['var(--font-jost)'],
+      }
     },
   },
   plugins: [],
