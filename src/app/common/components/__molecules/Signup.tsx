@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import translationJson from "../../language.json";
 
 type Language = "en" | "it" | "ru" | "tr" | "es" | "de" | "fr";
@@ -57,6 +58,7 @@ const validationSchema = Yup.object().shape({
 const Signup = () => {
   const [language, setLanguage] = useState<Language>("en");
   const t = translation[language];
+  const router = useRouter();
 
   const {
     register,
@@ -70,10 +72,11 @@ const Signup = () => {
 
   const onSubmit = (data: FormData) => {
     console.log("Signup Data:", data);
+    router.push("/inside");
   };
 
   return (
-    <div className="flex flex-col gap-[20px] items-center w-full h-screen  justify-center  [background-image:linear-gradient(153deg,_#28A7ED_0%,_#A337F6_50%,_#E84D70_100%)]">
+    <div className="flex flex-col gap-[20px] items-center w-full h-screen justify-center [background-image:linear-gradient(153deg,_#28A7ED_0%,_#A337F6_50%,_#E84D70_100%)]">
       <div className="mb-4">
         <label htmlFor="lang" className="mr-2 font-medium">
           {t.selectLanguage}:
@@ -94,7 +97,7 @@ const Signup = () => {
         </select>
       </div>
 
-      <div className="w-[450px] h-auto bg-white rounded-lg flex flex-col p-8 shadow-md">
+      <div className="w-[450px] bg-white rounded-lg flex flex-col p-8 shadow-md">
         <h5 className="text-2xl font-semibold mb-6 text-center">{t.signup}</h5>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
@@ -159,16 +162,14 @@ const Signup = () => {
           {submitError && (
             <p className="text-sm text-red-500 mb-2">{submitError}</p>
           )}
-          <Link href="/inside">
-            <button
-              type="submit"
-              className="bg-black text-white w-[387px] h-10 rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
-            >
-              {t.signup}
-            </button>
-          </Link>
-        </form>
 
+          <button
+            type="submit"
+            className="bg-black text-white w-[387px] h-10 rounded-md hover:bg-blue-600 transition-colors font-medium shadow-[0_4px_10px_rgba(255,255,255,0.5)]"
+          >
+            {t.signup}
+          </button>
+        </form>
         <p className="mt-6 text-center text-sm text-gray-600">
           {t.haveAccount}{" "}
           <Link href="/">

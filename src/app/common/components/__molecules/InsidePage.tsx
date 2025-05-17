@@ -8,8 +8,6 @@ import Bulb from "../../Image/bulb.svg";
 import Notfound from "../../Image/insidePageNotFound.png";
 import AddFeedBackBtn from "../__atoms/addFeedBackBtn/AddFeedBackBtn";
 
-import FeedBackItemsBtn from "../__atoms/feedBackItemsBtn/FeedBackItemsBtn";
-
 export default function InsidePage() {
   const FeedBackItemBtns = [
     { text: "All" },
@@ -111,7 +109,6 @@ export default function InsidePage() {
               0 Suggestions
             </p>
           </div>
-
           <Link href="/feedback">
             <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
               + Add Feedback
