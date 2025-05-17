@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { feedbackSchema, FeedbackFormData } from "../validations/feedback";
+import GoBackBtn from "../__atoms/goBackBtn/goBackBtn";
 
 const AddFeedback = () => {
   const {
@@ -23,14 +24,7 @@ const AddFeedback = () => {
     <div className="min-h-screen bg-[#F7F8FD] flex items-center justify-center px-4 py-10">
       <div className="max-w-xl w-full bg-white rounded-2xl shadow-lg p-8 relative">
         <div className="flex items-center gap-3 mb-6">
-          <Link href="/inside">
-            <button>
-              <Image src={arrow} width={7} height={3} alt="Back Arrow" />
-            </button>
-          </Link>
-          <Link href="/inside">
-            <h2 className="text-[#647196] text-sm font-medium">Go Back</h2>
-          </Link>
+          <GoBackBtn className="#647196" />
         </div>
 
         <h2 className="text-[#3A4374] text-2xl font-bold mb-6 mt-4">
