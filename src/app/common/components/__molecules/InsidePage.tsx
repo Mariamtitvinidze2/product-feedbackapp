@@ -117,11 +117,7 @@ export default function InsidePage() {
           </div>
 
 
-          <Link href="/feedback">
-            <button className="min-w-[150px] h-[44px] bg-[#AD1FEA] mr-[16px] text-[#F2F4FE] font-bold rounded-[10px]">
-              + Add Feedback
-            </button>
-          </Link>
+          <AddFeedBackBtn />
 
         </div>
 
