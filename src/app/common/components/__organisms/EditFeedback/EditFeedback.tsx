@@ -7,7 +7,6 @@ export default function EditFeedback() {
             <div className="">
                 <h1 className="text-[#3A4374] text-[24px] font-bold max-[550px]:text-[18px]">Editing ‘Add a dark theme option’</h1>
             </div>
-
         </div>
     </>
 }
