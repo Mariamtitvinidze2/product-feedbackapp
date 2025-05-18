@@ -37,5 +37,4 @@ export const EditFeedbackSchema = Yup.object({
 export type EditFeedBackData = Yup.InferType<typeof EditFeedbackSchema>
 
 
-
 export type FeedbackFormData = Yup.InferType<typeof feedbackSchema>;

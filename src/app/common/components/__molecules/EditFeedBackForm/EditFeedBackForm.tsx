@@ -3,8 +3,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { EditFeedbackSchema, EditFeedBackData } from "../../validations/feedback";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import EditFeedBackBtn from "../../__atoms/editFeedBackBtn/EditFeedBackBtn";
 export default function EditFeedBackForm() {
+    const router = useRouter()
     const [title, setTitle] = useState('ravi feedback ra')
     const { register, handleSubmit, formState: { errors }
     } = useForm<EditFeedBackData>({
@@ -16,6 +18,10 @@ export default function EditFeedBackForm() {
     }, [])
     const editFeedback = (data: EditFeedBackData) => {
         console.log('data', data)
+    }
+
+    const CancelBtn = () => {
+        router.push("/inside")
     }
     return (
         <>
@@ -35,7 +41,7 @@ export default function EditFeedBackForm() {
                         <input
                             {...register('feedTitle')}
                             type="text"
-                            className={`w-full px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px] text-[#3A4374] rounded-[5px] ${errors.feedTitle ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
+                            className={`w-full px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px] max-[550px]:text-[13px] text-[#3A4374] rounded-[5px] ${errors.feedTitle ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
                             maxLength={40}
                             onChange={(e) => setTitle(e.target.value)}
                         />
@@ -50,7 +56,7 @@ export default function EditFeedBackForm() {
                         <h2 className="text-[14px] mt-0.5  text-[#647196] max-[550px]:text-[13px]">
                             Choose a category for your feedback
                         </h2>
-                        <select {...register('editCategory')} name="editCategory" className={`w-full px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px] text-[#3A4374] rounded-[5px] ${errors.editCategory ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
+                        <select {...register('editCategory')} name="editCategory" className={`w-full px-6 py-[13px]  outline-none mt-4 bg-[#F7F8FD] text-[15px] max-[550px]:text-[13px] text-[#3A4374] rounded-[5px] ${errors.editCategory ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
                         >
                             <option value="">Select Category</option>
                             <option value="Suggestion">Suggestion</option>
@@ -70,7 +76,7 @@ export default function EditFeedBackForm() {
                         <h2 className="text-[14px] mt-0.5  text-[#647196] max-[550px]:text-[13px]">
                             Change feature state
                         </h2>
-                        <select {...register('editStatus')} name="editStatus" className={`w-full px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px] text-[#3A4374] rounded-[5px] ${errors.editCategory ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
+                        <select {...register('editStatus')} name="editStatus" className={`w-full px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px]  text-[#3A4374] max-[550px]:text-[13px] rounded-[5px] ${errors.editCategory ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
                         >
                             <option value="">Select Option</option>
                             <option value="UI">UI</option>
@@ -91,18 +97,17 @@ export default function EditFeedBackForm() {
                         <h2 className="text-[14px] mt-0.5  text-[#647196] max-[550px]:text-[13px]">
                             Include any specific comments on what should be improved, added, etc.
                         </h2>
-                        <textarea {...register('feedDetail')} name="feedDetail" className={`w-full resize-none px-6 py-[13px] outline-none mt-4 bg-[#F7F8FD] text-[15px] text-[#3A4374] rounded-[5px] ${errors.feedDetail ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
+                        <textarea {...register('feedDetail')} name="feedDetail" className={`w-full resize-none px-6 py-[13px]  outline-none mt-4 bg-[#F7F8FD] text-[15px] max-[550px]:text-[13px] text-[#3A4374] rounded-[5px] ${errors.feedDetail ? 'focus:border-red-500 focus:border-[1px]' : 'focus:border-[#4661E6] focus:border-[1px]'}  `}
                         ></textarea>
                         {errors.feedDetail && (
                             <p className="text-red-500 text-sm">{errors.feedDetail.message}</p>
                         )}
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between max-[550px]:flex-col-reverse max-[550px]:gap-4">
                         <EditFeedBackBtn color="#D73737" text="Delete" />
-                        <div className="flex gap-4">a
-                            <EditFeedBackBtn color="#3A4374" text="Cancel" />
+                        <div className="flex gap-4 max-[550px]:flex-col-reverse">
+                            <EditFeedBackBtn color="#3A4374" text="Cancel" fun={CancelBtn} />
                             <EditFeedBackBtn color="#AD1FEA" text="Add Feedback" />
-
                         </div>
                     </div>
                 </div>
