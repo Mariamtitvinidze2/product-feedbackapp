@@ -26,4 +26,16 @@ export const feedbackSchema = Yup.object({
     ),
 });
 
+export const EditFeedbackSchema = Yup.object({
+  feedTitle: Yup.string()
+  .required("Title is required"),
+  editStatus : Yup.string().required('Status is required'),
+  editCategory : Yup.string().required('Choose Category'),
+  feedDetail : Yup.string().required("Can't be empty"),
+})
+
+export type EditFeedBackData = Yup.InferType<typeof EditFeedbackSchema>
+
+
+
 export type FeedbackFormData = Yup.InferType<typeof feedbackSchema>;
