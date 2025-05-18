@@ -58,6 +58,7 @@ const validationSchema = Yup.object().shape({
 const Signup = () => {
   const [language, setLanguage] = useState<Language>("en");
   const t = translation[language];
+
   const router = useRouter();
 
   const {
@@ -97,7 +98,7 @@ const Signup = () => {
         </select>
       </div>
 
-      <div className="w-[450px] bg-white rounded-lg flex flex-col p-8 shadow-md">
+      <div className="w-[450px] h-auto bg-white rounded-lg flex flex-col p-8 shadow-md">
         <h5 className="text-2xl font-semibold mb-6 text-center">{t.signup}</h5>
 
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
@@ -170,6 +171,7 @@ const Signup = () => {
             {t.signup}
           </button>
         </form>
+
         <p className="mt-6 text-center text-sm text-gray-600">
           {t.haveAccount}{" "}
           <Link href="/">

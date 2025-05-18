@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import translationJson from "../../language.json";
 
@@ -51,7 +52,7 @@ const validationSchema = Yup.object().shape({
 const Signin = () => {
   const [language, setLanguage] = useState<Language>("en");
   const t = translation[language];
-  const router = useRouter();
+  const router = useRouter(); // ✅ გამოიყენება რაუტინგისთვის
 
   const {
     register,
@@ -65,17 +66,14 @@ const Signin = () => {
 
   const onSubmit = (data: FormData) => {
     console.log("Form Data:", data);
-    if (data.email && data.password === data.repeatPassword) {
-      router.push("/inside");
-    } else {
-      setSubmitError("Something went wrong. Try again.");
-    }
+
+    router.push("/inside");
   };
 
   return (
     <div className="flex flex-col gap-[20px] items-center w-full h-screen justify-center [background-image:linear-gradient(153deg,_#28A7ED_0%,_#A337F6_50%,_#E84D70_100%)]">
       <div className="mb-4">
-        <label htmlFor="lang" className="mr-2 font-medium text-white">
+        <label htmlFor="lang" className="mr-2 font-medium">
           {t.selectLanguage}:
         </label>
         <select
@@ -140,9 +138,11 @@ const Signin = () => {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           {t.noAccount}{" "}
-          <a href="/Signup" className="text-blue-500 hover:underline">
-            {t.signup}
-          </a>
+          <Link href="/Signup">
+            <span className="text-blue-500 hover:underline cursor-pointer">
+              {t.signup}
+            </span>
+          </Link>
         </p>
       </div>
     </div>
