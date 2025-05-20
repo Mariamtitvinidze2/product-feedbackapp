@@ -42,7 +42,7 @@ export default function InsidePage() {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[#F7F8FD]  p-4 py-10">
+    <div className="flex min-h-screen justify-center items-start bg-[#F7F8FD]  p-4 py-10">
       <div className="flex flex-col justify-between max-w-[255px] h-[529px]">
         <div>
           <div
@@ -154,7 +154,7 @@ export default function InsidePage() {
         </div>
       </div>
 
-      <div className="flex flex-col max-w-[825px] min-w-[600px] h-[529px] ml-[30px]">
+      <div className="flex flex-col max-w-[825px] min-w-[600px] ml-[30px]">
         <div className="flex flex-row max-w-[825px] bg-[#373F68] h-[92px] items-center justify-between rounded-[15px] p-6">
           <div className="flex flex-row items-center">
             <Image
